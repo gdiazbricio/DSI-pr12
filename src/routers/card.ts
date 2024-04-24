@@ -26,7 +26,7 @@ cardRouter.get("/cards/:id", (req, res) => {
   const filter = {id: req.params.id.toString()};
   Card.find(filter).then((cards) => {
     if (cards.length !== 0) res.send(cards);
-    else res.status(400).send();
+    else res.status(404).send();
   }).catch(() => {
     res.status(500).send();
   });
